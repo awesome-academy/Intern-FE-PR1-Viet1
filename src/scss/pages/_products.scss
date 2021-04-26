@@ -136,31 +136,4 @@
             }
         }
     }
-
-    &-pagination {
-        &__content {
-            @include flex(flex-end);
-            gap: 1rem;
-
-            @include respond-to("lg") {
-                justify-content: center;
-            }
-        }
-        &__item {
-            background-color: $white;
-            border: 1px $border-color solid;
-            &-active {
-                background-color: $dark-green;
-                .products-pagination__button {
-                    color: $white;
-                }
-            }
-        }
-        &__button {
-            padding: 0 1.5rem;
-            min-width: 4rem;
-            min-height: 4rem;
-            color: $dark-gray;
-        }
-    }
 }

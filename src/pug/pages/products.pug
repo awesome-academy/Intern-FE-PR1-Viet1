@@ -1,6 +1,7 @@
 extends ../base/base.pug
 
 include ../components/productItem.pug
+include ../components/portfolio.pug
 include ../partials/mixin.pug
 
 block variables
@@ -10,15 +11,6 @@ block variables
     - var sortColor = sortColor
     - var product = products.newProducts
     - var bannerImg = "../assets/images/products.png"
-
-mixin portfolio(name, data, title)
-    section.portfolio-product 
-        +title(title)
-        div(class= `${name}__content`)
-            ul(class=`${name}__list`)
-                each item in data
-                    li(class=`${name}__item`)
-                        a(href="#")= item 
 
 block content
     .page__product
@@ -80,13 +72,6 @@ block content
                                     each item, index in product
                                         if(index<6)
                                             +productHorizontal(item)
-                        .products-pagination 
-                            .products-pagination__container
-                                form(action="#") 
-                                    ul.products-pagination__content
-                                        - var pagination = ['Trang đầu', '1', '2', '3', '4', 'Trang cuối']
-                                            each item, index in pagination 
-                                                li(class=`products-pagination__item ${index==1 ? 'products-pagination__item-active' : ''}`) 
-                                                    button.products-pagination__button(type='button')= item
+                        include ../components/pagination.pug
                                     
                             
