@@ -91,43 +91,43 @@ input:checked + .popup {
             padding-left: 0;
         }
     }
-    .button__close {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        font-size: 2.2rem;
-        z-index: 100;
+}
+.button__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.2rem;
+    z-index: 100;
 
-        label {
-            position: relative;
-            width: 4rem;
-            height: 4rem;
-            cursor: pointer;
+    label {
+        position: relative;
+        width: 4rem;
+        height: 4rem;
+        cursor: pointer;
 
-            &::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: -25%;
-                width: 2.5rem;
-                height: 1.5px;
-                background-color: $dark-green;
-                transform: rotate(45deg) translate(100%);
-                -webkit-transform: rotate(45deg) translate(100%);
-                -moz-transform: rotate(45deg) translate(100%);
-                -ms-transform: rotate(45deg) translate(100%);
-                -o-transform: rotate(45deg) translate(100%);
-            }
-            &::after {
-                @extend label::before;
-                left: 17%;
-                top: 45%;
-                transform: rotate(135deg) translate(0);
-                -webkit-transform: rotate(135deg) translate(0);
-                -moz-transform: rotate(135deg) translate(0);
-                -ms-transform: rotate(135deg) translate(0);
-                -o-transform: rotate(135deg) translate(0);
-            }
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -25%;
+            width: 2.5rem;
+            height: 1.5px;
+            background-color: $dark-green;
+            transform: rotate(45deg) translate(100%);
+            -webkit-transform: rotate(45deg) translate(100%);
+            -moz-transform: rotate(45deg) translate(100%);
+            -ms-transform: rotate(45deg) translate(100%);
+            -o-transform: rotate(45deg) translate(100%);
+        }
+        &::after {
+            @extend label::before;
+            left: 17%;
+            top: 45%;
+            transform: rotate(135deg) translate(0);
+            -webkit-transform: rotate(135deg) translate(0);
+            -moz-transform: rotate(135deg) translate(0);
+            -ms-transform: rotate(135deg) translate(0);
+            -o-transform: rotate(135deg) translate(0);
         }
     }
 }
