@@ -47,7 +47,7 @@ body {
     min-width: 3.4rem;
     @include border-radius(2.5rem);
     @include respond-to("lg") {
-        min-width: 3rem;
+        min-width: 8rem;
         padding: 0.7rem 1.2rem;
         font-size: 1.2rem;
     }
@@ -55,8 +55,9 @@ body {
 .button-round--lg {
     @extend .button-round;
     padding: 1.2rem 2.5rem;
+    min-width: 13rem;
     @include respond-to("md") {
-        min-width: 3rem;
+        min-width: 10.5rem;
         padding: 0.9rem 1.7rem;
         font-size: 1.2rem;
     }
@@ -74,6 +75,7 @@ body {
     border: 1px $green solid;
 }
 input,
+textarea,
 select,
 option,
 button {
