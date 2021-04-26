@@ -66,12 +66,12 @@
             padding-top: 2rem;
 
             @include respond-to("xl") {
-                width: 50%;
+                width: calc(50% - 3rem);
                 padding-left: 3rem;
             }
 
             @include respond-to("lg") {
-                width: 50%;
+                width: calc(50% - 3rem);
                 padding-left: 0;
             }
             @include respond-to("sm") {
