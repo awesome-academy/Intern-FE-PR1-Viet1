@@ -43,7 +43,7 @@ body {
     font-size: 1.3rem;
 }
 .button-round {
-    padding: 1rem 1.5rem;
+    padding: 1rem 2rem;
     min-width: 3.4rem;
     @include border-radius(2.5rem);
     @include respond-to("lg") {
@@ -52,9 +52,26 @@ body {
         font-size: 1.2rem;
     }
 }
+.button-round--lg {
+    @extend .button-round;
+    padding: 1.2rem 2.5rem;
+    @include respond-to("md") {
+        min-width: 3rem;
+        padding: 0.9rem 1.7rem;
+        font-size: 1.2rem;
+    }
+}
+
 .button-green {
+    text-transform: uppercase;
     background-color: $green;
     color: $white !important;
+}
+.button-white {
+    text-transform: uppercase;
+    background-color: $white;
+    color: $green !important;
+    border: 1px $green solid;
 }
 input,
 select,

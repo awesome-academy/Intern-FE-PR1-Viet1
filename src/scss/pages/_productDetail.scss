@@ -15,8 +15,6 @@
             display: flex;
         }
         &-slide {
-            @include respond-to("lg") {
-            }
             .carousel-img {
                 @include respond-to("md") {
                 }
@@ -25,24 +23,6 @@
     }
     &__left {
         padding: 1rem 0;
-        .product {
-            &__rate {
-                font-size: 1.2rem;
-            }
-            &__name {
-                font-size: 1.7rem;
-
-                @include respond-to("md") {
-                    font-size: 2.1rem;
-                }
-            }
-            &__price {
-                @include respond-to("md") {
-                    @include flex-align-center;
-                    padding-top: 3rem;
-                }
-            }
-        }
     }
     &__desc {
         padding: 2rem 0;
@@ -139,5 +119,24 @@
 
     &__suggestions {
         padding-bottom: 4rem;
+    }
+
+    .product {
+        &__rate {
+            font-size: 1.2rem;
+        }
+        &__name {
+            font-size: 1.7rem;
+
+            @include respond-to("md") {
+                font-size: 2.1rem;
+            }
+        }
+        &__price {
+            @include respond-to("md") {
+                @include flex-align-center;
+                padding-top: 3rem;
+            }
+        }
     }
 }

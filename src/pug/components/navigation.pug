@@ -36,7 +36,7 @@ mixin nav-item(menuItem, type= "")
                                         else 
                                             .col-12.dropdown__list
                                                 - for(var i=0; i<=8; i++)
-                                                    li.dropdown__item dropdown-item 1
+                                                    li.dropdown__item dropdown-item 
                 ul.nav__respond
                     .row
                         .col-sm-1.col-2.d-flex
@@ -50,7 +50,8 @@ mixin nav-item(menuItem, type= "")
                                         button.button.header__search-button
                                             i(class="fas fa-search")
                                 .header__cart.header__cart-respond
-                                    a(href="#")
-                                        i(class="fas fa-shopping-cart")
-                                        span.header__cart-count 0 
-                                            span Sản phẩm 
+                                    button.button 
+                                        a(href="cart.html")
+                                            i(class="fas fa-shopping-cart")
+                                            span.header__cart-count 0 
+                                                span Sản phẩm 
