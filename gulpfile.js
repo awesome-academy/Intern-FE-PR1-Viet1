@@ -12,7 +12,7 @@ const FilesPath = {
 function sassTask() {
     return src(FilesPath.sassFiles)
         .pipe(sass())
-        .pipe(concat("style.css"))
+        .pipe(concat("styles.css"))
         .pipe(dest("dist/css"))
         .pipe(browserSync.stream());
 }
