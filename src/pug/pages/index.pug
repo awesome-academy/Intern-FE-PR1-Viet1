@@ -1,41 +1,32 @@
 extends ../base/base.pug
 
 include ../components/carousel.pug
-include ../components/product.pug
+include ../components/productItem.pug
+include ../partials/mixin.pug
 
 block variables
     - var [item1,item2,item3,item4,item5,item6] = products.hotProducts
     - var popularProducts = products.popularProducts
-    - var saleProducts = products.saleProducts
     - var newProducts = products.newProducts
     - var imgBanner = "./assets/images/banner.png"
     - var newsHome= news.home
-    
-mixin title(title)
-    .product__title  
-        h2= title
-        
-mixin titleSecond(title, idCarousel)
-    .product__title.product__title-second 
-        h2= title
-        .product__title-icon
-            .product__icon.icon.icon-round-sm(href=idCarousel ,role="button" data-slide="prev")
-                i(class="fas fa-chevron-left")
-            .product__icon.icon.icon-round-sm(href=idCarousel ,role="button" data-slide="next")
-                i(class="fas fa-chevron-right")
 
-mixin newsItem({src,date,title,content})
-    .news__item 
-        .news__img(style=`background-image: url("./assets/images/${src}")`)
-        .news__content 
-            .news__date
-                p= date
-            .news__title
-                h3= title
-            .news__desc
-                p= content 
-            .news__more
-                a(href="#") Đọc tiếp 
+mixin titleAndCarousel(name, title, id, data, size, type)
+    .d-md-block.d-none
+        if(type)
+            +title(title)
+        else 
+            +titleSecond(title, `#${id}`)
+    .d-md-none.d-block
+        +titleSecond(title,  `#${id}-md`)
+    div(class= `${name}__list`)
+        .d-md-block.d-none
+            +carouselProduct(data, size,id )
+        .d-md-none.d-block
+            if(type)
+                +carouselProduct(data, size, `${id}-md`, "small")
+            else    
+                +carouselProduct(data, 1, `${id}-md`)
 
 block content
     section.carousel
@@ -75,29 +66,17 @@ block content
                                 each item in popularProducts
                                     +productHorizontal(item, "small")
                         .popular-product.d-md-none.d-block 
-                            .d-md-block.d-none
-                                +titleSecond("Sản phẩm khuyến mãi", "#popularProducts") 
-                            .d-md-none.d-block
-                                +titleSecond("Sản phẩm khuyến mãi", "#popularProducts-md")
-                            .popular-product__list 
-                                    +carouselProduct(popularProducts, 3,"popularProducts","small")
-                                     
+                            +titleAndCarousel("popular-product", "Sản phẩm khuyến mãi","popularProducts", popularProducts,3,"horizontal" )
+                            
                 .col-xl-9.col-md-8 
                     section.sale-product 
-                        .d-md-block.d-none
-                            +titleSecond("Sản phẩm khuyến mãi", "#carouselProduct") 
-                        .d-md-none.d-block
-                            +titleSecond("Sản phẩm khuyến mãi", "#carouselProduct-md")
-                        .sale-product__list
-                            +carouselProduct(newProducts, 6, "carouselProduct")
+                        +titleAndCarousel("popular-product", "Sản phẩm khuyến mãi","sale-product ",newProducts,6 )
     section.banner 
         .container 
             .banner__content(style=`background-image: url(${imgBanner})`) 
     section.new-product 
         .container 
-            +titleSecond("Sản phẩm khuyến mới", "#carouselNewProduct")
-            .new-product__list
-                +carouselProduct(newProducts, 8, "carouselNewProduct")
+            +titleAndCarousel("popular-product", "Sản phẩm khuyến mãi","new-product",newProducts,8 )
     section.news.d-lg-block.d-none 
         .container 
             +title("Tin tức")
