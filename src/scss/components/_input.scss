@@ -33,7 +33,7 @@
         }
 
         &-checkbox {
-            @include flex(flex-start, center, row-reverse);
+            @include flex(flex-end, center, row-reverse);
             margin-left: 5px;
             .input {
                 border: none;

@@ -1,8 +1,8 @@
 extends ../base/base.pug
 
 include ../components/input.pug
+include ../components/logo.pug
 include ../partials/mixin.pug
-
 
 block variables
 
@@ -28,9 +28,7 @@ block content
                                         +input('Bình luận', 'text', 'comment', 'textarea')
                                 .col-md-6
                                    .contact__right 
-                                        .logo
-                                            img(src="./assets/images/logo.png" , alt=",")
-                                            p.logo-text Món quà từ thiên nhiên
+                                        +logo
                                         .contact__desc 
                                             p DKT được thành lập vói niềm đam mê và khát vọng thành công trong lĩnh vực Thương mại điện tử. Chúng tôi đã và đang khẳng định lại vị trí hàng đầu bằng những sản phẩm
                                         .contact__info 
