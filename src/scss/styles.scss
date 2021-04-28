@@ -1,10 +1,12 @@
 @import "utilities/reset";
 @import "utilities/variables";
-@import "utilities/global";
 @import "utilities/mixin";
+@import "utilities/global";
 
 @import "components/carousel";
 @import "components/navigation";
+@import "components/product";
 
 @import "pages/header";
 @import "pages/footer";
+@import "pages/home";

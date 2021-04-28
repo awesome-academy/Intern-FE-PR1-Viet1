@@ -1,7 +1,109 @@
 extends ../base/base.pug
 
 include ../components/carousel.pug
+include ../components/product.pug
+
+block variables
+    - var [item1,item2,item3,item4,item5,item6] = products.hotProducts
+    - var popularProducts = products.popularProducts
+    - var saleProducts = products.saleProducts
+    - var newProducts = products.newProducts
+    - var imgBanner = "./assets/images/banner.png"
+    - var newsHome= news.home
+    
+mixin title(title)
+    .product__title  
+        h2= title
+        
+mixin titleSecond(title, idCarousel)
+    .product__title.product__title-second 
+        h2= title
+        .product__title-icon
+            .product__icon.icon.icon-round-sm(href=idCarousel ,role="button" data-slide="prev")
+                i(class="fas fa-chevron-left")
+            .product__icon.icon.icon-round-sm(href=idCarousel ,role="button" data-slide="next")
+                i(class="fas fa-chevron-right")
+
+mixin newsItem({src,date,title,content})
+    .news__item 
+        .news__img(style=`background-image: url("./assets/images/${src}")`)
+        .news__content 
+            .news__date
+                p= date
+            .news__title
+                h3= title
+            .news__desc
+                p= content 
+            .news__more
+                a(href="#") Đọc tiếp 
 
 block content
-    .carousel
+    section.carousel
         +carousel(carousel)
+    section.hot-product 
+        .container 
+            .hot-product__container 
+                +title("Sản phẩm nổi bật")
+                .hot-product__list 
+                        .row
+                            .col-lg-6.col-12
+                                .hot-product__left
+                                    .row
+                                        .col-12 
+                                            +productVertical(item1)
+                                        .col-6
+                                            +productVertical(item4)
+                                        .col-6
+                                            +productVertical(item5)
+                            .col-lg-6.col-12
+                                .hot-product__right
+                                    .row
+                                        .col-6
+                                            +productVertical(item2)
+                                        .col-6
+                                            +productVertical(item3)
+                                        .col-12
+                                            +productVertical(item6)
+    .product__sale-buy 
+        .container 
+            .row 
+                .col-xl-3.col-md-4 
+                    section.popular-product
+                        .popular-product.d-md-block.d-none 
+                            +title("Sản phẩm mua nhiều")
+                            .popular-product__list 
+                                each item in popularProducts
+                                    +productHorizontal(item, "small")
+                        .popular-product.d-md-none.d-block 
+                            .d-md-block.d-none
+                                +titleSecond("Sản phẩm khuyến mãi", "#popularProducts") 
+                            .d-md-none.d-block
+                                +titleSecond("Sản phẩm khuyến mãi", "#popularProducts-md")
+                            .popular-product__list 
+                                    +carouselProduct(popularProducts, 3,"popularProducts","small")
+                                     
+                .col-xl-9.col-md-8 
+                    section.sale-product 
+                        .d-md-block.d-none
+                            +titleSecond("Sản phẩm khuyến mãi", "#carouselProduct") 
+                        .d-md-none.d-block
+                            +titleSecond("Sản phẩm khuyến mãi", "#carouselProduct-md")
+                        .sale-product__list
+                            +carouselProduct(newProducts, 6, "carouselProduct")
+    section.banner 
+        .container 
+            .banner__content(style=`background-image: url(${imgBanner})`) 
+    section.new-product 
+        .container 
+            +titleSecond("Sản phẩm khuyến mới", "#carouselNewProduct")
+            .new-product__list
+                +carouselProduct(newProducts, 8, "carouselNewProduct")
+    section.news.d-lg-block.d-none 
+        .container 
+            +title("Tin tức")
+            .news__container
+                .row 
+                    each item in newsHome 
+                        .col-md-4
+                            +newsItem(item)
+                        

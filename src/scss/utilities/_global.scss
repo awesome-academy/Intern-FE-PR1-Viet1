@@ -40,6 +40,47 @@ body {
     outline: none !important;
     background-color: transparent;
     cursor: pointer;
+    font-size: 1.3rem;
+}
+.button-round {
+    padding: 1rem 1.5rem;
+    min-width: 3.4rem;
+    @include border-radius(2.5rem);
+}
+.button-green {
+    background-color: $green;
+    color: $white;
+    &:hover {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+}
+input {
+    border: none;
+    outline: none !important;
+    background-color: transparent;
+    font-family: "Poppins", sans-serif;
+}
+.icon {
+    @include flex(center, center);
+}
+.icon-round {
+    @include square(4rem, 50%);
+    border: 1px #dddcdc solid;
+    &:hover {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+}
+.icon-round-sm {
+    @include square(2.5rem, 50%);
+    border: 1px #dddcdc solid;
+    font-size: 1.2rem;
+
+    &:hover {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
 }
 
 input {
