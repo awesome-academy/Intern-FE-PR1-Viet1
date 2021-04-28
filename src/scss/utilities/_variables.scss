@@ -3,7 +3,7 @@ $black: #111111;
 $gray: #e6e6e6;
 $light-gray: #f7f7f7;
 $light-black: #313131;
-$dark-gray: #818181;
+$dark-gray: #969696;
 $blue: #1b95e0;
 $green: #3fb871;
 $dark-green: #36a66d;
@@ -29,6 +29,9 @@ $primary-font-family: "Nunito", sans-serif;
 $secondary-font-family: "Dancing Script", sans-serif;
 
 $breakpoints: (
+    "xl": (
+        max-width: 1200px,
+    ),
     "lg": (
         max-width: 992px,
     ),
