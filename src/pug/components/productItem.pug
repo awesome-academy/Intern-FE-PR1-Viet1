@@ -1,13 +1,14 @@
 mixin productHorizontal(data, size)
     - var {src, name, discount, rate,currentPrice,oldPrice, desc} = data
-        div(class=`product__item product__horizontal ${size== "small" && "product__horizontal-small"}`)
-                div(class=` ${size=="small" ? "col-4 p-0":"col-lg-3"}`) 
-                    .product__image
+        div(class=`   ${size== "small" ? "product__horizontal-small" : "product__horizontal "}`)
+            .row
+                div(class=` ${size=="small" ? "col-5  ":"col-4 "}`) 
+                    .product__image.h-100
                         img(src=`./assets/images/${src}.png`, alt="anh")
-                div(class=` ${size=="small" ? "col-7 p-0":"col-lg-9"}`) 
+                div(class=` ${size=="small" ? "col-6 p-0 ":"col-8 "} my-auto`) 
                     div(class=`product__content ${size== "small" && "product__content-small"}`)
                         .product__name 
-                            h4= name 
+                            h4.text-clamp.text-clamp--1= name 
                         .product__rate 
                             if(Math.floor(rate) < 5)
                                 - for( var i=0; i< Math.floor(rate); i++)
@@ -17,16 +18,16 @@ mixin productHorizontal(data, size)
                                         i(class="fas fa-star-half-alt")
                                     else
                                         i(class="far fa-star")
-                        if(desc)
+                        if(!size)
                             .product__decs 
-                                p= desc
+                                p.text-clamp.text-clamp--2= desc
                         .product__price 
                             span.product__price-current=  `${currentPrice} đ`
                             if(oldPrice)
                                 span.product__price-old= `${oldPrice} đ`
                         if (size !="small")
-                            .product__widget  
-                                button.button.button-round.button-green  Mua ngay 
+                            .product__widget-horizontal  
+                                a.button.button-round.button-green  Mua ngay 
                                 .product__icon.icon.icon-round
                                     i(class="fas fa-search")
                                 .product__icon.icon.icon-round
@@ -39,12 +40,12 @@ mixin productVertical({src, name, discount, rate,currentPrice,oldPrice, desc})
         .product__image 
             img(src=`./assets/images/${src}.png`, alt="anh")
             .product__widget  
-                button.button.button-round.button-green  Mua ngay 
+                a.button.button-round.button-green(href="productDetail.html")  Mua ngay 
                 .product__icon.icon.icon-round
                     i(class="fas fa-search")
         .product__content
             .product__name 
-                h4= name 
+                h4.text-clamp.text-clamp--1= name 
             .product__rate 
                 if(Math.floor(rate) < 5)
                     - for( var i=0; i< Math.floor(rate); i++)
@@ -57,13 +58,7 @@ mixin productVertical({src, name, discount, rate,currentPrice,oldPrice, desc})
                 else 
                     - for( var i=0; i< Math.floor(rate); i++)
                         i(class="fas fa-star")
-            .product__decs 
-                p= desc
             .product__price 
                 span.product__price-current=  `${currentPrice} đ`
                 if(oldPrice)
                     span.product__price-old= `${oldPrice} đ`
-        
-            
-
-

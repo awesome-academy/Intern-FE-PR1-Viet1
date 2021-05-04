@@ -1,9 +1,4 @@
-mixin footer-item(col)
-    div(class=col)
-        h3.footer__main-title= contentItem.title 
-        ul.footer__main-list
-            each item in contentItem.list
-                li= item
+include mixin.pug
 
 footer.footer 
     .footer__top 
@@ -16,6 +11,7 @@ footer.footer
                             each item in socials
                                 li
                                     i(class=item)
+                                    
                 .col-md-8
                     .footer__form
                         .row 
