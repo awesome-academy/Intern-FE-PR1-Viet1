@@ -46,21 +46,26 @@ body {
     padding: 1rem 1.5rem;
     min-width: 3.4rem;
     @include border-radius(2.5rem);
+    @include respond-to("lg") {
+        min-width: 3rem;
+        padding: 0.7rem 1.2rem;
+        font-size: 1.2rem;
+    }
 }
 .button-green {
     background-color: $green;
     color: $white;
-    &:hover {
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-    }
 }
-input {
+input,
+select,
+option,
+button {
     border: none;
     outline: none !important;
     background-color: transparent;
     font-family: "Poppins", sans-serif;
 }
+
 .icon {
     @include flex(center, center);
 }
@@ -70,6 +75,10 @@ input {
     &:hover {
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
+    }
+    @include respond-to("lg") {
+        @include square(3rem, 50%);
+        font-size: 1.2rem;
     }
 }
 .icon-round-sm {
@@ -88,4 +97,19 @@ input {
     outline: none !important;
     background-color: transparent;
     font-family: "Poppins", sans-serif;
+}
+.text-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.text-clamp--1 {
+    -webkit-line-clamp: 1;
+}
+.text-clamp--2 {
+    -webkit-line-clamp: 2;
+}
+.text-clamp--5 {
+    -webkit-line-clamp: 5;
 }

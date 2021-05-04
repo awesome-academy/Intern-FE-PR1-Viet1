@@ -29,6 +29,7 @@
 .popular-product {
     height: calc(100% - 3rem);
     padding-bottom: 3rem;
+    max-height: 83rem;
     &__list {
         height: calc(100% - 6.4rem);
         min-height: 73rem;
@@ -38,7 +39,9 @@
         }
     }
     .product__horizontal-small {
-        height: unset;
+        @include respond-to("md") {
+            height: auto;
+        }
     }
 }
 .new-product {
