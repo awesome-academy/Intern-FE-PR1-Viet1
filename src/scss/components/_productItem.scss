@@ -70,7 +70,7 @@
 
     &__widget {
         @include flex(center, center);
-        gap: 2rem;
+        gap: 1rem;
         width: 100%;
         @include absolute(120%, "", "", 50%);
         @include transform-translate(xy, -50%, -50%);
