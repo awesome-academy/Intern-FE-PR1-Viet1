@@ -54,7 +54,7 @@ body {
 }
 .button-green {
     background-color: $green;
-    color: $white;
+    color: $white !important;
 }
 input,
 select,
@@ -109,6 +109,9 @@ input {
 }
 .text-clamp--2 {
     -webkit-line-clamp: 2;
+}
+.text-clamp--3 {
+    -webkit-line-clamp: 3;
 }
 .text-clamp--5 {
     -webkit-line-clamp: 5;

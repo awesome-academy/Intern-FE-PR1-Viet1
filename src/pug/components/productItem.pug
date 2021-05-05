@@ -27,7 +27,7 @@ mixin productHorizontal(data, size)
                                 span.product__price-old= `${oldPrice} đ`
                         if (size !="small")
                             .product__widget-horizontal  
-                                button.button.button-round.button-green  Mua ngay 
+                                a.button.button-round.button-green  Mua ngay 
                                 .product__icon.icon.icon-round
                                     i(class="fas fa-search")
                                 .product__icon.icon.icon-round
@@ -40,7 +40,7 @@ mixin productVertical({src, name, discount, rate,currentPrice,oldPrice, desc})
         .product__image 
             img(src=`./assets/images/${src}.png`, alt="anh")
             .product__widget  
-                button.button.button-round.button-green  Mua ngay 
+                a.button.button-round.button-green(href="productDetail.html")  Mua ngay 
                 .product__icon.icon.icon-round
                     i(class="fas fa-search")
         .product__content
@@ -62,7 +62,3 @@ mixin productVertical({src, name, discount, rate,currentPrice,oldPrice, desc})
                 span.product__price-current=  `${currentPrice} đ`
                 if(oldPrice)
                     span.product__price-old= `${oldPrice} đ`
-        
-            
-
-
