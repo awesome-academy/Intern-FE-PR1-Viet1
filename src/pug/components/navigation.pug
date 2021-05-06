@@ -1,6 +1,6 @@
 mixin nav-item(menuItem, type= "")
     li(class=`nav__item ${type}`)
-        a(class="button__link", href=menuItem.link)= menuItem.title
+        a(class="button__link text-uppercase", href=menuItem.link)= menuItem.title
         if(menuItem.dropdown)
             i( class="fa fa-angle-down nav__item-icon" )
             ul.dropdown 
@@ -23,7 +23,7 @@ mixin nav-item(menuItem, type= "")
                 ul.nav__list 
                     each menuItem in menu 
                         li(class=`nav__item nav__item-respond `)
-                            a(class="button__link", href=menuItem.link)= menuItem.title
+                            a(class="button__link text-uppercase", href=menuItem.link)= menuItem.title
                             if(menuItem.dropdown)
                                 i( class="fa fa-angle-down nav__item-icon" )
                                 ul.dropdown
