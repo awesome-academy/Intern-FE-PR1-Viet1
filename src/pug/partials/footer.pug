@@ -1,4 +1,5 @@
 include mixin.pug
+include ../components/logo.pug
 
 footer.footer 
     .footer__top 
@@ -26,9 +27,7 @@ footer.footer
         .container
             .row
                 .col-lg-4
-                    .logo.logo__footer
-                        img(src="./assets/images/logo.png" , alt=",")
-                        p.logo-text Món quà từ thiên nhiên 
+                    +logo("logo__footer")
                     .footer__desc Green shop được thành lập tù 8/2012 được sự tin tưởng cảu khách hàng trong suốt thời gian hoạt động đén nay cửa hàng ngày một phát triển
                     p.footer__phone 
                         i(class="fas fa-mobile-alt")

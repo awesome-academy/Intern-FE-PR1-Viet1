@@ -1,4 +1,5 @@
 include mixin.pug
+include ../components/logo.pug
 
 header.header
     .header__top 
@@ -20,12 +21,9 @@ header.header
                         a(href="register.html")  Đăng ký
     .header__main(style="background-image:url('./assets/background/bg-1.png')") 
         .container 
-            .row 
+            .row
                 .col-md-5
-                    .logo
-                        img(src="./assets/images/logo.png" , alt=",")
-                        p.logo-text Món quà từ thiên nhiên
-
+                    +logo
                 .col-md-6.offset-md-1.d-flex.justify-content-end.align-items-center
                     .header__search
                         p.header__phone 
