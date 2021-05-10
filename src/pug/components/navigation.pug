@@ -4,19 +4,14 @@ mixin nav-item(menuItem, type= "")
         if(menuItem.dropdown)
             i( class="fa fa-angle-down nav__item-icon" )
             ul.dropdown 
-                .row
-                    if(menuItem.title =="Sản phẩm")
-                        .col-6.dropdown__list
-                            - for(var i=0; i<=3; i++)
-                                li.dropdown__item dropdown-item 1
-                        img.col-6.dropdown__image(src="./assets/images/new-4.png", alt="")
-                    else 
-                        .col-12.dropdown__list
-                            - for(var i=0; i<=8; i++)
-                                li.dropdown__item dropdown-item 1
+                if(menuItem.title =="Sản phẩm")
+                    each item in productPortfolio
+                        li.col-10.dropdown__item= item
+                else 
+                    each item in blogTag
+                        li.col-10.dropdown__item= item 
 .header__nav
         nav.nav.position-relative
-            .nav__
             input(type="checkbox" id="toggle__nav")
             div(id="collapse1")
                 ul.toggle__nav-list
@@ -33,16 +28,15 @@ mixin nav-item(menuItem, type= "")
                             if(menuItem.dropdown)
                                 i( class="fa fa-angle-down nav__item-icon" )
                                 ul.dropdown
-                                    .row
+                                    .row.m-4
                                         if(menuItem.title =="Sản phẩm")
-                                            .col-lg-6.col-12.dropdown__list
-                                                - for(var i=0; i<=3; i++)
-                                                    li.dropdown__item dropdown-item 1
+                                            .col-md-6.col-12
+                                                each item in productPortfolio
+                                                    li.col-12.dropdown__item= item 
                                             img.col-6.dropdown__image(src="./assets/images/new-4.png", alt="")
                                         else 
-                                            .col-12.dropdown__list
-                                                - for(var i=0; i<=8; i++)
-                                                    li.dropdown__item dropdown-item 
+                                            each item in blogTag
+                                                li.col-6.dropdown__item= item 
                 ul.nav__respond
                     .row
                         .col-sm-1.col-2.d-flex

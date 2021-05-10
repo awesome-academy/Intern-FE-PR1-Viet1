@@ -6,6 +6,9 @@
             .product {
                 &__widget {
                     top: 50%;
+                    @include respond-to("lg") {
+                        top: 60%;
+                    }
                 }
             }
         }
@@ -48,7 +51,7 @@
     &__rate {
         color: $yellow;
         i {
-            @include transition(all, 0s, ease-in);
+            @include transition(all, 0.3s, ease-in);
             &:hover {
                 @include transform-translate(y, -5px);
             }

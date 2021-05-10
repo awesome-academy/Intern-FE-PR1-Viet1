@@ -36,12 +36,27 @@
                     @include absolute(6.5rem, "", "", 0);
                     @include box-shadow(3px, 9px);
                     @include width-height(50rem, auto);
-                    padding: 2rem;
+                    z-index: 100;
                     opacity: 0;
                     visibility: hidden;
-                    overflow: hidden;
+                    overflow-y: scroll;
                     background-color: $white;
                     @include transition(all, 0.3s);
+
+                    &::-webkit-scrollbar {
+                        width: 3px;
+                        margin-left: 15px;
+                    }
+                    &::-webkit-scrollbar-track {
+                        background: #f1f1f1;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        background: $black;
+                    }
+                    &::-webkit-scrollbar-thumb:hover {
+                        background: #555;
+                    }
+
                     @include respond-to("lg") {
                         @include transform-translate(x, -10rem);
                     }
@@ -79,18 +94,21 @@
                     }
                     &__item {
                         position: relative;
+                        padding: 0.8rem 0 0.4rem 0;
+                        border-bottom: 1px $border-color solid;
                         @include transition(all, 0.4s);
                         &::before {
                             content: ">";
-                            @include absolute(0, "", "", -1rem);
+                            @include absolute(0.8rem, "", "", -1rem);
                             @include transition(all, 0.4s);
                             opacity: 0;
                             visibility: hidden;
                         }
 
                         &:hover {
-                            @include transform-translate(x, 1rem);
+                            padding-left: 1rem;
                             &::before {
+                                left: 0;
                                 opacity: 1;
                                 visibility: visible;
                             }
@@ -211,8 +229,11 @@
         @include transition(left, 0.3s, linear);
 
         height: 100%;
-        @media (min-width: 767px) {
+        @media (min-width: 769px) {
             display: none !important;
+        }
+        .nav__item {
+            font-size: 1.6rem;
         }
     }
     .toggle__nav-list {
@@ -226,7 +247,10 @@
         background-color: $green;
 
         @include respond-to("sm") {
-            width: 60%;
+            width: 70%;
+        }
+        @include respond-to("xs") {
+            width: 100%;
         }
     }
     .button__close {
