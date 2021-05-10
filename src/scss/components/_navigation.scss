@@ -191,4 +191,59 @@
             }
         }
     }
+
+    #toggle__nav {
+        display: none;
+    }
+    input:checked + #collapse1 {
+        left: 0;
+    }
+    input:checked + #collapse1 .close__nav {
+        display: block;
+    }
+
+    #collapse1 {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 9999999;
+        width: 100%;
+        @include transition(left, 0.3s, linear);
+
+        height: 100%;
+        @media (min-width: 767px) {
+            display: none !important;
+        }
+    }
+    .toggle__nav-list {
+        position: relative;
+        top: 0;
+        left: 0;
+        padding-top: 11.4rem;
+        width: 50%;
+        height: 100%;
+        z-index: 101;
+        background-color: $green;
+
+        @include respond-to("sm") {
+            width: 60%;
+        }
+    }
+    .button__close {
+        label {
+            &::before {
+                background-color: $white;
+            }
+        }
+    }
+    .close__nav {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 200%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
 }

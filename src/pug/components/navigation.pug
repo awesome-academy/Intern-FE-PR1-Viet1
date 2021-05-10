@@ -16,9 +16,15 @@ mixin nav-item(menuItem, type= "")
                                 li.dropdown__item dropdown-item 1
 .header__nav
         nav.nav.position-relative
-            div(id="collapse1" class="panel-collapse collapse nav__respond-list")
-                each menuItem in menu 
-                    +nav-item(menuItem, "nav__respond-item")
+            .nav__
+            input(type="checkbox" id="toggle__nav")
+            div(id="collapse1")
+                ul.toggle__nav-list
+                    each menuItem in menu 
+                        +nav-item(menuItem, "nav__respond-item")
+                    button.button.button__close 
+                        label(for="toggle__nav")
+                label.close__nav(for="toggle__nav")
             .container
                 ul.nav__list 
                     each menuItem in menu 
@@ -40,8 +46,9 @@ mixin nav-item(menuItem, type= "")
                 ul.nav__respond
                     .row
                         .col-sm-1.col-2.d-flex
-                            button.button(data-toggle="collapse" href="#collapse1")
-                                i(class="fas fa-bars icon-hamburger")
+                            button.button
+                                label(for="toggle__nav")
+                                    i(class="fas fa-bars icon-hamburger") 
                         .col-sm-8.col-10.offset-sm-3
                             .header__search.header__search-respond
                                 .header__search-form
